@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Example</title>
+
+  <style>
+    .hidden {
+      display: none;
+    }
+
+    .red {
+      color: red;
+    }
+
+    .padded {
+      padding-left: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Alexander Hamilton</h1>
+  <p>Alexander Hamilton (January 11, 1755 or 1757 – July 12, 1804) was an American statesman and one of the Founding Fathers of the United States. He was an influential interpreter and promoter of the U.S. Constitution, as well as the founder of the nation's financial system, the Federalist Party, the United States Coast Guard, and The New York Post newspaper.</p>
+
+  <button onclick="makeRed()">Make it Red</button>
+  <button onclick="padTheLeft()">Move it Over</button>
+  <button onclick="doItAll()">Do it all</button>
+  <button onclick="randomColor()">Random</button>
+
+
+<script>
+  function randomColor() {
+    var pTag = document.querySelector('p');
+    var characters = '0123456789ABCDEF';
+    var color = '#';
+
+    for(var i = 0; i < 6; i++) {
+      color += characters[Math.floor(Math.random() * characters.length)];
+    }
+    
+    pTag.style.color = color;
+  }
+
+
+  function makeRed() {
+    var pTag = document.querySelector('p');
+    pTag.classList.add('red');
+  }
+
+  function padTheLeft() {
+    var pTag = document.querySelector('p');
+    pTag.style.paddingLeft = '100px';
+  }
+
+  function doItAll() {
+    makeRed();
+    padTheLeft();
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
