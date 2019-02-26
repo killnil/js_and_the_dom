@@ -8,55 +8,39 @@
       display: none;
     }
 
+    .padded {
+      padding-left: 100px;
+    }
+
     .red {
       color: red;
     }
 
-    .padded {
-      padding-left: 100px;
+    .blue {
+      color: blue;
     }
   </style>
 </head>
 <body>
 
-  <h1>Alexander Hamilton</h1>
-  <p>Alexander Hamilton (January 11, 1755 or 1757 – July 12, 1804) was an American statesman and one of the Founding Fathers of the United States. He was an influential interpreter and promoter of the U.S. Constitution, as well as the founder of the nation's financial system, the Federalist Party, the United States Coast Guard, and The New York Post newspaper.</p>
+  <p onclick="changeParagraph(this)">First p tag</p>
+  <p onclick="changeParagraph(this)">Second p tag</p>
+  <p onclick="changeParagraph(this)">Third p tag</p>
+  <p onclick="changeParagraph(this)">Fourth p tag</p>
+  <button onclick="styleAllParagraphs()">Style Them All</button>
 
-  <button onclick="makeRed()">Make it Red</button>
-  <button onclick="padTheLeft()">Move it Over</button>
-  <button onclick="doItAll()">Do it all</button>
-  <button onclick="randomColor()">Random</button>
-
-
-<script>
-  function randomColor() {
-    var pTag = document.querySelector('p');
-    var characters = '0123456789ABCDEF';
-    var color = '#';
-
-    for(var i = 0; i < 6; i++) {
-      color += characters[Math.floor(Math.random() * characters.length)];
+  <script>
+    function changeParagraph(pTag) {
+      pTag.classList.toggle('red');
     }
-    
-    pTag.style.color = color;
-  }
 
-
-  function makeRed() {
-    var pTag = document.querySelector('p');
-    pTag.classList.add('red');
-  }
-
-  function padTheLeft() {
-    var pTag = document.querySelector('p');
-    pTag.style.paddingLeft = '100px';
-  }
-
-  function doItAll() {
-    makeRed();
-    padTheLeft();
-  }
-</script>
+    function styleAllParagraphs() {
+      var pTags = document.querySelectorAll('p');
+      pTags.forEach(function(pTag) {
+        pTag.classList.toggle('blue');
+      });
+    }
+  </script>
 
 </body>
 </html>

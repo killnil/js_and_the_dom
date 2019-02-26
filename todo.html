@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo App</title>
+
+  <style>
+    .complete {
+      text-decoration: line-through;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <ol>
+    <li onclick="toggleComplete(this)">Pay bills</li>
+    <li onclick="toggleComplete(this)">Wash car</li>
+    <li onclick="toggleComplete(this)">Get laundry</li>
+  </ol>
+  <button onclick="hideCompletedTasks()">Hide Completed Tasks</button>
+  <button onclick="showAllTasks()">Show All Tasks</button>
+  <h4>Number of Items Completed: <span id="num-complete">0</span></h4>
+
+  <script>
+    function toggleComplete(task) {
+      task.classList.toggle('complete');
+
+      var completedTasks = document.querySelectorAll('.complete');
+      var numCompleteTag = document.querySelector('#num-complete');
+      numCompleteTag.innerText = completedTasks.length;
+    }
+
+    function hideCompletedTasks() {
+      var completedTasks = document.querySelectorAll('.complete');
+      completedTasks.forEach(function(completedTask) {
+        completedTask.classList.add('hidden');
+      });
+    }
+
+    function showAllTasks() {
+      var hiddenTasks = document.querySelectorAll('.hidden');
+      hiddenTasks.forEach(function(hiddenTask) {
+        hiddenTask.classList.remove('hidden');
+      });
+    }
+  </script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+</html>
